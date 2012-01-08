@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "guerrilla_patch.gemspec",
     "lib/guerrilla_patch.rb",
     "spec/string_spec.rb"
   ]
