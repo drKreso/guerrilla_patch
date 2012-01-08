@@ -8,6 +8,8 @@ rdoc
 doc
 .yardoc
 
+*.un~
+
 # bundler
 .bundle
 
