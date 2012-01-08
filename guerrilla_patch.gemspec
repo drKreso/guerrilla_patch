@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "guerrilla_patch.gemspec",
     "lib/guerrilla_patch.rb",
+    "lib/guerrilla_patch/guerrilla_patch.rb",
     "spec/string_spec.rb"
   ]
   s.homepage = "http://github.com/drkreso/guerrilla_patch"
