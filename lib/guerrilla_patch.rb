@@ -1,1 +1,1 @@
-require 'guerrilla_patch/guerrilla_patch.rb'
+require_relative 'guerrilla_patch/guerrilla_patch.rb'
