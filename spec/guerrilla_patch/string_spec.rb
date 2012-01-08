@@ -1,4 +1,4 @@
-require_relative '../lib/guerrilla_patch'
+require 'guerrilla_patch/string.rb'
 
 describe String do
   it 'should create proper class name' do
