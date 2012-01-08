@@ -33,3 +33,6 @@ class Object
  def class_name_upcase_roman() return self.class.to_s.underscore.upcase_roman.to_sym end
 end
 
+module Kernel
+  def plural(item) item.count > 1 ? 's' : '' end
+end
