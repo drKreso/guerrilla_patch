@@ -23,6 +23,7 @@ Becomes beautiful
 
 ```
 let(:right?) { @right ? "YES" : "NO" }
+```
 
 
 Contributing to guerrilla_patch
