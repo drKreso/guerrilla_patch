@@ -5,7 +5,7 @@ I am tired of hunting and tracking down my own monkey patches. Not to mention ha
 
 * new in 2.0 version
 
-Support for defining one liners with more succinct syntax (let, self_let)
+Support for defining one liners with more succinct syntax (let, let_self)
 
 ```
 def right?
