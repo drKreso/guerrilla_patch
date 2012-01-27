@@ -3,6 +3,28 @@ Guerrilla Patch
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
+* new in 2.0 version
+
+Support for defining one liners with more succinct syntax (let, self_let)
+
+```
+def right?
+  @right ? "YES" : "NO"
+end
+```
+
+Instead of ugly
+
+```
+def right?() @right ? "YES" : "NO" end
+```
+
+Becomes beautiful
+
+```
+let(:right?) { @right ? "YES" : "NO" }
+
+
 Contributing to guerrilla_patch
 -------------------------------
  
