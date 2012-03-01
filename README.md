@@ -34,7 +34,7 @@ Support for combining complex string expressions (not for the performance, but f
 
 ```
 def mark
-  year_of_manufacure <<
+  year_of_manufacture <<
   city.blank? '' : city.address <<
   person.blank? '' : person.name[2..4]
 end
