@@ -3,8 +3,8 @@ Guerrilla Patch
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
-* new in 2.0 version
-
+Short onliners method definition
+--------------------------------
 Support for defining one liners with more succinct syntax (let, let_self)
 
 ```
@@ -25,7 +25,8 @@ Becomes beautiful
 let(:right?) { @right ? "YES" : "NO" }
 ```
 
-*new in 2.1 version
+Complex string expressions concatenation
+-----------------------------------------
 
 Support for combining complex string expressions (not for the performance, but for the looks)
 
@@ -48,6 +49,7 @@ def mark
 end
 ```
 
+Somehow for my convoluted brain the later reads better.
 
 Contributing to guerrilla_patch
 -------------------------------
