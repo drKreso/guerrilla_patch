@@ -45,7 +45,7 @@ You can write like this
 ```
 def mark
   consists_of do |r|
-    r.add year_of_manufacure
+    r.add year_of_manufacture
     r.when_present(city) { |c| c.address }
     r.when_present(person) { |p| p.name[2..4] }
   end
