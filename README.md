@@ -25,6 +25,29 @@ Becomes beautiful
 let(:right?) { @right ? "YES" : "NO" }
 ```
 
+*new in 2.1 version
+
+Support for combining complex string expressions (not for the performance, but for the looks)
+
+```
+def mark
+  year_of_manufacure <<
+  city.blank? '' : city.address <<
+  person.blank? '' : person.name[2..4]
+end
+```
+
+You can write like this:
+```
+def mark
+  consists_of do |r|
+    r.add year_of_manufacure
+    r.when_present(city) { |c| c.address }
+    r.when_present(person) { |p| p.name[2..4] }
+  end
+end
+```
+
 
 Contributing to guerrilla_patch
 -------------------------------
