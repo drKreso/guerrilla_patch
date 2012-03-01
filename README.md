@@ -25,6 +25,8 @@ Becomes beautiful
 let(:right?) { @right ? "YES" : "NO" }
 ```
 
+The only sweet spot for this that I could find are really simple and short methods.
+
 Complex string expressions concatenation
 -----------------------------------------
 
@@ -38,7 +40,8 @@ def mark
 end
 ```
 
-You can write like this:
+You can write like this
+
 ```
 def mark
   consists_of do |r|
