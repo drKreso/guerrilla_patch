@@ -42,4 +42,27 @@ describe Kernel do
     end.should == "AAAAAABBBBBBYEAHBABY"
   end
 
+  it 'concatenates result when item is true' do
+    test_object = nil
+    consists_of do |r|
+      r.add "AAAAAA"
+      r.when(test_object) { "BBBBBB" }
+    end.should == "AAAAAA"
+
+    test_object = true
+    consists_of do |r|
+      r.add "AAAAAA"
+      r.when(test_object) { "BBBBBB" }
+    end.should == "AAAAAABBBBBB"
+
+    test_object = false
+    consists_of do |r|
+      r.add "AAAAAA"
+      r.when(test_object) { "BBBBBB" }
+    end.should == "AAAAAA"
+
+  end
+
+
+
 end

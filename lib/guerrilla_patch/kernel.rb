@@ -34,6 +34,11 @@ module Kernel
      def when_present(item, &block)
        @result << Kernel.when_present(item, &block).to_s
      end
+
+     def when(item, &block)
+       return unless item
+       @result << Kernel.when_present(item, &block).to_s
+     end
    end
 
 end
