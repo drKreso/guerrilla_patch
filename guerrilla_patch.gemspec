@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "guerrilla_patch"
-  s.version = "2.3.0"
+  s.version = "2.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["drKreso"]
-  s.date = "2012-03-30"
+  s.date = "2012-03-31"
   s.description = "I am tierd of hunting down monkey patches at large. Caging them inside this gem"
   s.email = "kresimir.bojcic@gmail.com"
   s.extra_rdoc_files = [
