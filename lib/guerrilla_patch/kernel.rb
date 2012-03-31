@@ -40,17 +40,11 @@ module Kernel
       @result << Kernel.when_present(item, &block).to_s
     end
   end
-
+end
 
   #add sum to array, with or without name
   class Array
-    def sum
-      self.reduce(0, :+)
-    end
-
-    def sum(name)
+    def sum(name = nil)
       self.map(&name).reduce(0, :+)
     end
   end
-
-end
