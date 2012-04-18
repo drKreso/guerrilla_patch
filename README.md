@@ -3,7 +3,7 @@ Guerrilla Patch
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
-Short onliners method definition
+Short oneliners method definition
 --------------------------------
 Support for defining one liners with more succinct syntax (let, let_self)
 
