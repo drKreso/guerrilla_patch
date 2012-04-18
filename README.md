@@ -56,7 +56,7 @@ Somehow for my convoluted brain the later reads better.
 
 BigDecimal
 -----------
-Not using BigDecimal is asking for trouble, but using it is way to verbose:
+Not using BigDecimal is asking for trouble, but using it is way too verbose:
 
 ```
 amount = BigDecimal.new("100.10210")/BigDecimal.new(200.12)
