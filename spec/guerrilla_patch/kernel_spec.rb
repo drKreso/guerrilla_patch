@@ -63,6 +63,16 @@ describe Kernel do
 
   end
 
+  it 'can allocate a number evenly' do
+    100.allocate_evenly(2).should == [50, 50]
+    100.allocate_evenly(3).should == [33.33, 33.33, 33.34]
+  end
+
+  it 'can allocate a number proportionaly' do
+    100.allocate([1.to_d/2, 1.to_d/2]).should == [50, 50]
+    100.allocate([30,30,30]).should == [33.33, 33.33, 33.34]
+  end
+
 end
 
 describe Array do

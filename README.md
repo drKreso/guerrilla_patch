@@ -54,6 +54,32 @@ end
 
 Somehow for my convoluted brain the later reads better.
 
+BigDecimal
+-----------
+Not using BigDecimal is asking for trouble, but using it is way to verbose:
+
+```
+amount = BigDecimal.new("100.10210")/BigDecimal.new(200.12)
+```
+
+It is more succint to put it like this:
+
+```
+amount = 100.10210.to_d/200.12/to_d
+
+Allocate
+---------
+I belive allocate is missing from standard library.
+
+```
+90.allocate_evenly(3) #=> [30, 30, 30]
+100.allocate_evenly(3) #=> [33.33, 33.33, 33.34]
+
+100.allocate([1.to_d/2, 1/to_d/2]) #=> [50, 50]
+100.allocate([30, 30, 30]) #=> [33.33, 33.33, 33.34]
+```
+
+
 Contributing to guerrilla_patch
 -------------------------------
  

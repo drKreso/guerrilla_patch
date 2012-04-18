@@ -1,3 +1,6 @@
+require 'bigdecimal'
+require 'guerrilla_patch/allocate'
+
 module Kernel
   def let(name, &block)
     define_method(name, &block)
@@ -48,3 +51,20 @@ end
       self.map(&name).reduce(0, :+)
     end
   end
+
+module Kernel
+  def to_d
+    BigDecimal.new(self.to_s)
+  end
+
+  def allocate_evenly(number_of_slices)
+    Allocate.evenly(self.to_d, number_of_slices)
+  end
+
+  def allocate(ratios)
+    Allocate.new(self.to_d, ratios).divided
+  end
+end
+
+
+
