@@ -76,7 +76,7 @@ I belive allocate is missing from standard library. (At least I am unable to fin
 90.allocate_evenly(3) #=> [30, 30, 30]
 100.allocate_evenly(3) #=> [33.33, 33.33, 33.34]
 
-100.allocate([1.to_d/2, 1/to_d/2]) #=> [50, 50]
+100.allocate([1.to_d/2, 1.to_d/2]) #=> [50, 50]
 100.allocate([30, 30, 30]) #=> [33.33, 33.33, 33.34]
 ```
 
