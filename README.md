@@ -65,11 +65,12 @@ amount = BigDecimal.new("100.10210")/BigDecimal.new(200.12)
 It is more succint to put it like this:
 
 ```
-amount = 100.10210.to_d/200.12/to_d
+amount = 100.10210.to_d/200.12
+```
 
 Allocate
 ---------
-I belive allocate is missing from standard library.
+I belive allocate is missing from standard library. (At least I am unable to find it)
 
 ```
 90.allocate_evenly(3) #=> [30, 30, 30]
