@@ -52,6 +52,19 @@ end
     end
   end
 
+class Hash
+  def negative
+    Hash[self.map { |key,value| [key, -value]}]
+  end
+end
+
+class Fixnum
+  def negative
+    -self
+  end
+end
+
+
 module Kernel
   def to_d
     BigDecimal.new(self.to_s)
