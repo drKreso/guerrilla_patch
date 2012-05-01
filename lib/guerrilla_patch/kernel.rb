@@ -45,12 +45,12 @@ module Kernel
   end
 end
 
-  #add sum to array, with or without name
-  class Array
-    def sum(name = nil)
-      self.map(&name).reduce(0, :+)
-    end
+#add sum to array, with or without name
+class Array
+  def sum(name = nil)
+    self.map(&name).reduce(0, :+)
   end
+end
 
 class Hash
   def negative
@@ -61,6 +61,12 @@ end
 class Fixnum
   def negative
     -self
+  end
+end
+
+class Hash
+  def sum
+    self.each_value.reduce(0,:+)
   end
 end
 
