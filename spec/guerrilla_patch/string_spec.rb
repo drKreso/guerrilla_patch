@@ -30,6 +30,15 @@ describe String do
    'mile_xX'.upcase_roman.should == 'mile_XX'
   end
 
+  it 'knows how to upcase roman ii' do
+    'mili_Ii'.upcase_roman.should == 'mili_II'
+    'mili_ii'.upcase_roman.should == 'mili_II'
+  end
+
+  it 'should not upcase if not _' do
+    'mili'.upcase_roman.should == 'mili'
+  end
+
   it 'should know to indent' do
     a = "          kreso\n            subitem\n          peer\n"
     a.indent.should == "kreso\n  subitem\npeer\n"
