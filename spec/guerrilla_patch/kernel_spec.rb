@@ -77,17 +77,17 @@ end
 
 describe Array do
   it 'should know how to sum basic array' do
-    [1,2,3].sum.should == 6
+    [1,2,3].sum_me.should == 6
   end
 
   it 'should handle the zero elements case' do
-    [].sum.should == 0
+    [].sum_me.should == 0
   end
 
   it 'can sum by name' do
     apple = stub(:price => 100)
     orange = stub(:price => 200)
-    [apple, orange].sum(:price).should == 300
+    [apple, orange].sum_me(:price).should == 300
   end
 
 end

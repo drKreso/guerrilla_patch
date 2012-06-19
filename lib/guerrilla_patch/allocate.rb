@@ -8,13 +8,13 @@ class Allocate
   end
 
   def divided
-    divided_ratios = @ratios.map { |ratio| ratio.to_d/ratios.sum.to_d }
+    divided_ratios = @ratios.map { |ratio| ratio.to_d/ratios.sum_me.to_d }
     compensate_last_slice( divided_ratios.map { |ratio| (@amount * ratio).round(2) } )
   end
   
   def compensate_last_slice(rates)
     rates.tap do |rates|
-      rates[-1] = rates[-1] + (amount - rates.sum).round(2)
+      rates[-1] = rates[-1] + (amount - rates.sum_me).round(2)
       if ( amount > 0 && ( rates.select {|item| item <= 0 }.count > 0 ) ) ||
          ( amount < 0 && ( rates.select {|item| item >= 0 }.count > 0 ) )
         raise "Number is too small to be allocated on that number of slices(#@amount on #{@ratios.size} slices)."

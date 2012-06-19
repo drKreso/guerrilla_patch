@@ -47,7 +47,7 @@ end
 
 #add sum to array, with or without name
 class Array
-  def sum(name = nil)
+  def sum_me(name = nil)
     self.map(&name).reduce(0, :+)
   end
 end
