@@ -35,8 +35,7 @@ You can divide an amount by types. It uses allocate to prevent ±0.01 off errors
 
 ```
 ratios = { '1A' => 50, '1B' => 30, '1C' => 20 }
-DivideByType.divide(ratios, 50)
-==> {'1A' => 25, '1B' => 15, '1C' => 10}
+DivideByType.divide(ratios, 50) #=> {'1A' => 25, '1B' => 15, '1C' => 10}
 ```
 
 Aggregation
@@ -47,8 +46,7 @@ Support for aggregating hash values by type. You can add values and more interes
 amount =  Aggregator.aggregate do |result|
   result.add({ '1A' => 75 })
   result.subtract({ '1A' => 25 })
-end
-==> 50, '1A' => 50
+end #=> 50, '1A' => 50
 ```
 
 Short oneliners method definition
