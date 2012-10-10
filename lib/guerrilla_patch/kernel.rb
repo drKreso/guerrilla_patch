@@ -58,10 +58,27 @@ class Hash
   end
 end
 
+class Float
+  def divide(ratios)
+    DivideByType.divide(ratios, self)
+  end
+end
+
+class BigDecimal
+  def divide(ratios)
+    DivideByType.divide(ratios, self)
+  end
+end
+
 class Fixnum
   def negative
     -self
   end
+
+  def divide(ratios)
+    DivideByType.divide(ratios, self)
+  end
+
 end
 
 class Hash

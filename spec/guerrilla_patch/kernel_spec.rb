@@ -1,7 +1,7 @@
 require 'guerrilla_patch/kernel.rb'
 
 describe Kernel do
-  
+
   it 'wraps commnon nil object idiom' do
     test_object = nil
     when_present(test_object) { |t| t }.should == ''
@@ -71,6 +71,13 @@ describe Kernel do
   it 'can allocate a number proportionaly' do
     100.allocate([1.to_d/2, 1.to_d/2]).should == [50, 50]
     100.allocate([30,30,30]).should == [33.33, 33.33, 33.34]
+  end
+
+  it 'can divide number' do
+    50.divide({ '1A' => 50, '1B' => 30, '1C' => 20 }).should == { '1A' => 25, '1B' => 15, '1C' => 10 }
+    50.to_d.divide({ '1A' => 50, '1B' => 30, '1C' => 20 }).should == { '1A' => 25, '1B' => 15, '1C' => 10 }
+    50.to_f.divide({ '1A' => 50, '1B' => 30, '1C' => 20 }).should == { '1A' => 25, '1B' => 15, '1C' => 10 }
+    33.11.divide({ '1A' => 50, '1B' => 50}).should == {"1A"=> 16.56, "1B"=> 16.55 }
   end
 
 end

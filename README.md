@@ -29,13 +29,18 @@ I belive allocate is missing from standard library. (At least I am unable to fin
 100.allocate([30, 30, 30]) #=> [33.33, 33.33, 33.34]
 ```
 
-Divide Amount By Type
+Divide Number By Type
 ---------------
-You can divide an amount by types. It uses allocate to prevent ±0.01 off errors.
+You can divide a number by types. It uses allocate to prevent ±0.01 off errors.
 
 ```
-ratios = { '1A' => 50, '1B' => 30, '1C' => 20 }
-DivideByType.divide(ratios, 50) #=> {'1A' => 25, '1B' => 15, '1C' => 10}
+50.divide({ '1A' => 50, '1B' => 30, '1C' => 20 }) #=> { '1A' => 25, '1B' => 15, '1C' => 10 }
+```
+
+This might look trivial but it gets messy soon enough because number are not, well even.
+
+```
+33.11.divide({ '1A' => 50, '1B' => 50}) #=> {"1A"=> 16.56, "1B"=> 16.55 }
 ```
 
 Aggregation
@@ -43,7 +48,7 @@ Aggregation
 Support for aggregating hash values by type. You can add values and more interestingly subtract them.
 
 ```
-amount =  Aggregator.aggregate do |result|
+amount = Aggregator.aggregate do |result|
   result.add({ '1A' => 75 })
   result.subtract({ '1A' => 25 })
 end #=> 50, '1A' => 50
