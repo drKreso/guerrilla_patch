@@ -3,6 +3,55 @@ Guerrilla Patch
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
+BigDecimal
+-----------
+Not using BigDecimal is asking for trouble, but using it is way too verbose:
+
+```
+amount = BigDecimal.new("100.10210")/BigDecimal.new(200.12)
+```
+
+It is more succint to put it like this:
+
+```
+amount = 100.10210.to_d/200.12
+```
+
+Allocate
+---------
+I belive allocate is missing from standard library. (At least I am unable to find it)
+
+```
+90.allocate_evenly(3) #=> [30, 30, 30]
+100.allocate_evenly(3) #=> [33.33, 33.33, 33.34]
+
+100.allocate([1.to_d/2, 1.to_d/2]) #=> [50, 50]
+100.allocate([30, 30, 30]) #=> [33.33, 33.33, 33.34]
+```
+
+Divide Amount By Type
+---------------
+You can divide an amount by types. It uses allocate to prevent ±0.01 off errors.
+
+```
+ratios = { '1A' => 50, '1B' => 30, '1C' => 20 }
+DivideByType.divide(ratios, 50)
+==> {'1A' => 25, '1B' => 15, '1C' => 10}
+```
+
+Aggregation
+------------
+Support for aggregating hash values by type.
+
+```
+amount =  Aggregator.agregate do |result|
+  result.add({ '1A' => 75 })
+  result.subtract({ '1A' => 25 })
+end
+==> 50, '1A' => 50
+==
+
+
 Short oneliners method definition
 --------------------------------
 Support for defining one liners with more succinct syntax (let, let_self)
@@ -54,36 +103,10 @@ end
 
 Somehow for my convoluted brain the later reads better.
 
-BigDecimal
------------
-Not using BigDecimal is asking for trouble, but using it is way too verbose:
-
-```
-amount = BigDecimal.new("100.10210")/BigDecimal.new(200.12)
-```
-
-It is more succint to put it like this:
-
-```
-amount = 100.10210.to_d/200.12
-```
-
-Allocate
----------
-I belive allocate is missing from standard library. (At least I am unable to find it)
-
-```
-90.allocate_evenly(3) #=> [30, 30, 30]
-100.allocate_evenly(3) #=> [33.33, 33.33, 33.34]
-
-100.allocate([1.to_d/2, 1.to_d/2]) #=> [50, 50]
-100.allocate([30, 30, 30]) #=> [33.33, 33.33, 33.34]
-```
-
 
 Contributing to guerrilla_patch
 -------------------------------
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project

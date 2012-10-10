@@ -45,7 +45,7 @@ module Kernel
   end
 end
 
-#add sum to array, with or without name
+#add sum_me to array, with or without name
 class Array
   def sum_me(name = nil)
     self.map(&name).reduce(0, :+)
@@ -65,7 +65,7 @@ class Fixnum
 end
 
 class Hash
-  def sum
+  def sum_me
     self.each_value.reduce(0,:+)
   end
 end
