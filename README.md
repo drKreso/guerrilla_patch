@@ -41,7 +41,7 @@ DivideByType.divide(ratios, 50)
 
 Aggregation
 ------------
-Support for aggregating hash values by type.
+Support for aggregating hash values by type. You can add values and more interestingly subtract them.
 
 ```
 amount =  Aggregator.aggregate do |result|
