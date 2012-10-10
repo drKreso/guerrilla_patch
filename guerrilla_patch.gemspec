@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "guerrilla_patch"
-  s.version = "2.6.2"
+  s.name = %q{guerrilla_patch}
+  s.version = "2.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["drKreso"]
-  s.date = "2012-06-19"
-  s.description = "I am tierd of hunting down monkey patches at large. Caging them inside this gem"
-  s.email = "kresimir.bojcic@gmail.com"
+  s.date = %q{2012-10-10}
+  s.description = %q{I am tierd of hunting down monkey patches at large. Caging them inside this gem}
+  s.email = %q{kresimir.bojcic@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -27,18 +27,23 @@ Gem::Specification.new do |s|
     "VERSION",
     "guerrilla_patch.gemspec",
     "lib/guerrilla_patch.rb",
+    "lib/guerrilla_patch/aggregate_by_type/aggregator.rb",
+    "lib/guerrilla_patch/aggregate_by_type/amount.rb",
+    "lib/guerrilla_patch/aggregate_by_type/divide_by_type.rb",
     "lib/guerrilla_patch/allocate.rb",
     "lib/guerrilla_patch/kernel.rb",
     "lib/guerrilla_patch/string.rb",
+    "spec/guerrilla_patch/aggregate_by_type/aggregator_spec.rb",
+    "spec/guerrilla_patch/aggregate_by_type/divide_by_type_spec.rb",
     "spec/guerrilla_patch/allocate_spec.rb",
     "spec/guerrilla_patch/kernel_spec.rb",
     "spec/guerrilla_patch/string_spec.rb"
   ]
-  s.homepage = "http://github.com/drkreso/guerrilla_patch"
+  s.homepage = %q{http://github.com/drkreso/guerrilla_patch}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "Collection of monkey patches"
+  s.rubygems_version = %q{1.6.2}
+  s.summary = %q{Collection of monkey patches}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
