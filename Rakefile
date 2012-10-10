@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/drkreso/guerrilla_patch"
   gem.license = "MIT"
   gem.summary = %Q{Collection of monkey patches}
-  gem.description = %Q{I am tierd of hunting down monkey patches at large. Caging them inside this gem}
+  gem.description = %Q{Since I am tired of hunting down monkey patches at large I am caging them inside this gem}
   gem.email = "kresimir.bojcic@gmail.com"
   gem.authors = ["drKreso"]
   # dependencies defined in Gemfile
