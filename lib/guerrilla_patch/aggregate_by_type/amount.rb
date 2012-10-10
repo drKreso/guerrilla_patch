@@ -21,7 +21,7 @@ class Amount
   end
 
   def divide
-    DivideByType.divide(by_type, value)
+    value.divide by_type
   end
 
   private
