@@ -49,8 +49,7 @@ amount =  Aggregator.aggregate do |result|
   result.subtract({ '1A' => 25 })
 end
 ==> 50, '1A' => 50
-==
-
+```
 
 Short oneliners method definition
 --------------------------------
