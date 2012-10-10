@@ -44,7 +44,7 @@ Aggregation
 Support for aggregating hash values by type.
 
 ```
-amount =  Aggregator.agregate do |result|
+amount =  Aggregator.aggregate do |result|
   result.add({ '1A' => 75 })
   result.subtract({ '1A' => 25 })
 end

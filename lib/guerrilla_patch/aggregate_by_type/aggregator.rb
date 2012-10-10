@@ -2,7 +2,7 @@ require_relative 'divide_by_type'
 require_relative 'amount'
 
 class Aggregator
-  def self.agregate(&block)
+  def self.aggregate(&block)
     agregator = Aggregator.new
     block.call(agregator)
     return Amount.new(agregator.total,agregator.total_by_type)

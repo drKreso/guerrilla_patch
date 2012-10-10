@@ -2,7 +2,7 @@ require 'guerrilla_patch/aggregate_by_type/aggregator'
 
 describe Aggregator do
   it 'knows how to add regular number' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add 1
       result.add 2
     end
@@ -12,7 +12,7 @@ describe Aggregator do
   end
 
   it 'knows how to subtract regular number' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add 1
       result.subtract 2
     end
@@ -22,7 +22,7 @@ describe Aggregator do
   end
 
   it 'knows how to add amount with regular number' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add Amount.new(1, {})
       result.add Amount.new(2, {})
     end
@@ -32,7 +32,7 @@ describe Aggregator do
   end
 
   it 'knows how to add amount of integer type' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add Amount.new(1, {'1A' => 1})
       result.add Amount.new(2, {'1B' => 1})
     end
@@ -42,7 +42,7 @@ describe Aggregator do
   end
 
   it 'knows how to add amount of bigdecimal type' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add Amount.new(1.0.to_d, {'1A' => 1})
       result.subtract Amount.new(2.2.to_d, {'1B' => 1})
     end
@@ -52,7 +52,7 @@ describe Aggregator do
   end
 
   it 'knows how to subtract floats amounts' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add Amount.new(1.0, {'1A' => 1})
       result.subtract Amount.new(2.2, {'1B' => 1})
     end
@@ -62,7 +62,7 @@ describe Aggregator do
   end
 
   it 'knows how to subtract integer amounts' do
-    amount = Aggregator.agregate do |result|
+    amount = Aggregator.aggregate do |result|
       result.add Amount.new(1, {'1A' => 1})
       result.subtract Amount.new(2, {'1B' => 1})
     end
@@ -72,7 +72,7 @@ describe Aggregator do
   end
 
   it 'knows how to add by type' do
-   amount =  Aggregator.agregate do |result|
+   amount =  Aggregator.aggregate do |result|
       result.add({ '1A' => 75 })
       result.add({ '1A' => 25 })
     end
@@ -82,7 +82,7 @@ describe Aggregator do
   end
 
   it 'knows how to subtract by value' do
-   amount =  Aggregator.agregate do |result|
+   amount =  Aggregator.aggregate do |result|
       result.add({ '1A' => 75 })
       result.subtract({ '1A' => 25 })
     end
