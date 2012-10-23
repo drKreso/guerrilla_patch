@@ -33,13 +33,14 @@ describe Aggregator do
 
   it 'knows how to add amount with full precision' do
     amount = Aggregator.aggregate do |result|
+      result.subtract_full_precision Amount.new("0.001".to_d, {'1B' => "0.001".to_d})
       result.add_full_precision Amount.new("1.123".to_d, { "1A" => "1.123".to_d})
       result.add_full_precision Amount.new("2.222".to_d, { "1B" => "2.222".to_d})
       result.subtract_full_precision Amount.new("0.001".to_d, {'1C' => "0.001".to_d})
     end
 
-    amount.value.should == 3.344
-    amount.by_type.should == { '1A' => "1.123".to_d, '1B' => "2.222".to_d, '1C' => "-0.001".to_d }
+    amount.value.should == 3.343
+    amount.by_type.should == { '1A' => "1.123".to_d, '1B' => "2.221".to_d, '1C' => "-0.001".to_d }
   end
 
   it 'knows how to add amount of integer type' do

@@ -17,7 +17,10 @@ class Amount
   end
 
   def negative
-    Amount.new(-value, by_type)
+    result = {}
+    by_type.each_pair { |key, value| result[key] = -value }
+
+    Amount.new(-value, result)
   end
 
   def divide
