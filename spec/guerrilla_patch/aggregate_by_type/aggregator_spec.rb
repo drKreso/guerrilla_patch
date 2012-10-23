@@ -31,6 +31,16 @@ describe Aggregator do
     amount.by_type.should == { :no_division => 3 }
   end
 
+  it 'knows how to add amount with full precision' do
+    amount = Aggregator.aggregate do |result|
+      result.add_full_precision Amount.new("1.123".to_d, { "1A" => "1.123".to_d})
+      result.add_full_precision Amount.new("2.222".to_d, { "1B" => "2.222".to_d})
+    end
+
+    amount.value.should == 3.345
+    amount.by_type.should == { '1A' => "1.123".to_d, '1B' => "2.222".to_d }
+  end
+
   it 'knows how to add amount of integer type' do
     amount = Aggregator.aggregate do |result|
       result.add Amount.new(1, {'1A' => 1})
