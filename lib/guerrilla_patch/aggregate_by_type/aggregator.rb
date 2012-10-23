@@ -8,12 +8,27 @@ class Aggregator
     return Amount.new(agregator.total,agregator.total_by_type)
   end
 
+  def self.aggregate_full_precistion(&block)
+    agregator = Aggregator.new
+    block.call(agregator)
+    return Amount.new(agregator.total,agregator.total_by_type)
+  end
+
   def add(amount)
     total_list << Aggregator.prepare(amount)
   end
 
+  def add_full_precision(amount)
+    raise "Full precision can be done only on amount class. Class sended was: #{amount.class} with value: #{amount.inspect}" if amount.class != Amount
+    total_list << amount.by_type
+  end
+
   def subtract(amount)
     add(amount.negative)
+  end
+
+  def subtract_full_precision(amount)
+    add_full_precision(amount.negative)
   end
 
   def total
