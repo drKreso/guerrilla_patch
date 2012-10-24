@@ -37,7 +37,7 @@ You can divide a number by types. It uses allocate to prevent ±0.01 off errors.
 50.divide({ '1A' => 50, '1B' => 30, '1C' => 20 }) #=> { '1A' => 25, '1B' => 15, '1C' => 10 }
 ```
 
-This might look trivial but it gets messy soon enough because number are not, well even.
+This might look trivial but it gets messy soon enough because numbers are not, well even.
 
 ```
 33.11.divide({ '1A' => 50, '1B' => 50}) #=> {"1A"=> 16.56, "1B"=> 16.55 }
