@@ -1,5 +1,7 @@
 Guerrilla Patch
 ================
+[![Build Status](https://travis-ci.org/drKreso/guerrilla_patch.png)](https://travis-ci.org/drKreso/guerrilla_patch)
+
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
