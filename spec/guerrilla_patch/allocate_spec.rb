@@ -48,13 +48,13 @@ describe Allocate do
 
   it 'should raise exception for number that is too small' do
     lambda do
-      Allocate.evenly(0.1,20)
+       Allocate.evenly(0.1, 20)
     end.should raise_error 'Number is too small to be allocated on that number of slices(0.1 on 20 slices).'
   end
 
   it 'should raise exception for number that is too small negative' do
     lambda do
-      Allocate.evenly(-0.1,20)
+      Allocate.evenly(-0.1, 20)
     end.should raise_error 'Number is too small to be allocated on that number of slices(-0.1 on 20 slices).'
   end
 
@@ -64,4 +64,4 @@ describe Allocate do
     subject.divided.inject(0) { | sum, item | sum += item }.should == subject.amount
   end
 
-end 
+end

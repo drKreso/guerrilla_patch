@@ -22,5 +22,9 @@ describe DivideByType do
   it 'knows how to divide without ratios' do
     DivideByType.divide({}, 10).should == { :no_division => 10}
   end
+
+  it 'knows how to divide negative ratios' do
+     DivideByType.divide({"E2112"=>279.37, "E2111"=>-233.06}, 46.31).should == { "E2112" => 279.37, "E2111" => -233.06 }
+  end
 end
 
