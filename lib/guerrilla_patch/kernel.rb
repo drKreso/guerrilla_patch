@@ -62,6 +62,10 @@ class Float
   def divide(ratios)
     DivideByType.divide(ratios, self)
   end
+
+  def negative
+    -self
+  end
 end
 
 class BigDecimal
@@ -79,6 +83,12 @@ class Fixnum
     DivideByType.divide(ratios, self)
   end
 
+end
+
+class BigDecimal
+  def negative
+    -self
+  end
 end
 
 class Hash
