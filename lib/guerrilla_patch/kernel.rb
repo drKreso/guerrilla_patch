@@ -1,6 +1,5 @@
 require 'bigdecimal'
 require 'guerrilla_patch/allocate'
-require 'binding_of_caller'
 
 module Kernel
   def auto_assign(caller_binding)

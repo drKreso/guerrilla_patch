@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    guerrilla_patch (2.8.5)
+    guerrilla_patch (2.8.6)
 
 GEM
   remote: http://rubygems.org/
