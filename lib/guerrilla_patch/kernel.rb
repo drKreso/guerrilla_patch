@@ -1,7 +1,13 @@
 require 'bigdecimal'
 require 'guerrilla_patch/allocate'
+require 'binding_of_caller'
 
 module Kernel
+  def auto_assign
+    caller_binding = binding.of_caller(1)
+    method(caller[0][/`.*'/][1..-2]).parameters.each { |arg| instance_eval("@#{arg[1]} = caller_binding.eval(arg[1].to_s)") }
+  end
+
   def let(name, &block)
     define_method(name, &block)
   end

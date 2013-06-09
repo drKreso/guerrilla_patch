@@ -5,6 +5,43 @@ Guerrilla Patch
 
 I am tired of hunting and tracking down my own monkey patches. Not to mention hassle of dragging them between projects. I figured gem is a remedy for this.
 
+Assign instance variables automaticaly
+---------------------------------------
+You know that neat coffee script trick that shortens code below.
+
+```
+class Animal
+  constructor: (name) ->
+    @name = name
+
+```
+
+To be more succint:
+
+```
+class Animal
+  constructor: (@name) ->
+```
+
+While waiting for Ruby 2.0 to implement it I am using this:
+
+````
+def initialize(amount, index:nil, envy_no_more:nil)
+  auto_assign
+end
+```
+
+It's equvalent to this:
+
+```
+def initialize(amount, index:nil, envy_no_more:nil)
+  @amount = amount
+  @index = index
+  @envy_no_more = envy_no_more
+end
+```
+
+
 BigDecimal
 -----------
 Not using BigDecimal is asking for trouble, but using it is way too verbose:

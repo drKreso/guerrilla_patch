@@ -80,6 +80,21 @@ describe Kernel do
     33.11.divide({ '1A' => 50, '1B' => 50}).should == {"1A"=> 16.56, "1B"=> 16.55 }
   end
 
+  class TestAssign
+    attr_reader :index, :amount
+
+    def initialize(index, amount)
+      auto_assign
+    end
+
+  end
+
+  it 'assigns by default' do
+    subject = TestAssign.new(1, 100.0)
+    subject.index.should == 1
+    subject.amount.should == 100.0
+  end
+
 end
 
 describe Array do
