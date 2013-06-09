@@ -84,7 +84,7 @@ describe Kernel do
     attr_reader :index, :amount
 
     def initialize(index, amount)
-      auto_assign
+      auto_assign binding
     end
 
   end

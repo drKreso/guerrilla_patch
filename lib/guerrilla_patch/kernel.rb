@@ -3,8 +3,7 @@ require 'guerrilla_patch/allocate'
 require 'binding_of_caller'
 
 module Kernel
-  def auto_assign
-    caller_binding = binding.of_caller(1)
+  def auto_assign(caller_binding)
     method(caller[0][/`.*'/][1..-2]).parameters.each { |arg| instance_eval("@#{arg[1]} = caller_binding.eval(arg[1].to_s)") }
   end
 

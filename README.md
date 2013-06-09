@@ -27,7 +27,7 @@ While waiting for Ruby 2.0 to implement it I am using this:
 
 ````
 def initialize(amount, index:nil, envy_no_more:nil)
-  auto_assign
+  auto_assign binding
 end
 ```
 
