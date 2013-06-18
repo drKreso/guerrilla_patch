@@ -31,7 +31,7 @@ def initialize(amount, index:nil, envy_no_more:nil)
 end
 ```
 
-It's equvalent to this:
+It's equivalent to this:
 
 ```
 def initialize(amount, index:nil, envy_no_more:nil)
