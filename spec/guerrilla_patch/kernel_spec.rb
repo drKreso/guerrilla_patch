@@ -107,8 +107,8 @@ describe Array do
   end
 
   it 'can sum by name' do
-    apple = stub(:price => 100)
-    orange = stub(:price => 200)
+    apple = double(:price => 100)
+    orange = double(:price => 200)
     [apple, orange].sum_me(:price).should == 300
   end
 
