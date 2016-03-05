@@ -38,6 +38,12 @@ describe TextMatcher  do
     TextMatcher.match(source,target).should == { 1 => [1, 2] }
   end
 
+  it 'should recover after missing target' do
+    source = { 1 => "Petar ide u ducan.", 2 => "Tamo je ludnica." }
+    target = { 1 => "Petar ide u ducan.", 2 => "missing", 3=> "Tamo je ludnica." }
+    TextMatcher.match(source,target).should == { 1 => [1], 2 => [], 3 => [2] }
+  end
+
   it 'should recover on half match' do
     source = { 1 => "Petar ide u ducan.", 2 => "Tamo je ludnica.", 3 => "Ovo je ok.", 4 => "Sadrzi zadnje dvije." }
     target = { 1 => "Petar ide u ducan. Tamo", 2=> "je ludnica." , 3 => "Ovo je ok. Sadrzi zadnje dvije." }
