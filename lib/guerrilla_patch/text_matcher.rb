@@ -5,34 +5,46 @@ class TextMatcher
     source.each_pair { |key,value| source[key] = value.gsub(' ', '').downcase }
     target.each_pair { |key,value| target[key] = value.gsub(' ', '').downcase }
 
-    target.each_pair do |target_key, target_value|
-      result[target_key] = []
-      temp_key_buffer = []
-      temp_string_buffer = ""
+    indexed_source = source.each_value.map {|value| value}
+    indexed_target = target.each_value.map {|value| value}
 
-      source.each_pair.map do |source_key, source_value|
-        temp_key_buffer << source_key
-        temp_string_buffer += source_value
+    total_count = indexed_target.count
+    matched_text = ''
+    index = 0
+    source_index = 0
+    indexes = []
+    while(index < total_count)
 
-        if temp_string_buffer == target_value
-          result[target_key] = temp_key_buffer
-          temp_key_buffer.each do |temp_buffer_key|
-            source.delete(temp_buffer_key)
-          end
-          break
-        elsif temp_string_buffer.start_with?(target_value)
-          temp_key_buffer << source_key
-          target[target_key] = target[target_key][(source[source_key].size+1)..-1] || ''
-        elsif source_value.end_with?(target_value)
-          result[target_key] = temp_key_buffer
-          temp_key_buffer = []
-          temp_string_buffer = ""
-        end
-
+      if indexed_target[index] == indexed_source[index]
+        result[index] = [index]
+        matched_text = ''
+        index += 1
+        indexes = []
+      elsif indexed_source[source_index] == nil
+        result[index] = indexes
+        matched_text = ''
+        indexes = []
+        index += 1
+      elsif indexed_target[index] == matched_text
+        result[index] = indexes
+        indexes = []
+        index += 1
+      else
+        matched_text += indexed_source[source_index]
       end
+
+      indexes << source_index
+      source_index += 1
+    end
+    #map real ids
+    target_as_pairs = target.map {|key, value| [key, value]}
+    source_as_pairs = source.map {|key, value| [key, value]}
+    real_result = {}
+    result.each_pair do |target_index, source_indexes|
+      real_result[target_as_pairs[target_index][0]] = source_indexes.map { |source_index| source_as_pairs[source_index][0] }
     end
 
-    result
+    real_result
   end
 
 end
