@@ -32,6 +32,17 @@ describe TextMatcher  do
     TextMatcher.match(source,target).should == { 1 => [1, 2], 2 => [3] }
   end
 
+  it 'should pair when index is bigger than single digit number' do
+    source = { 1 => "A", 2 => "B", 3 => "C", 4 => "D", 5 => "EF", 6 => "G", 7 => "H", 8 => "I",
+               9 => "J", 10 => "KL", 11 => "M",  12 => "N", 13 => "O" }
+    target = { 1 => "A", 2 => "B", 3 => "C", 4 => "D", 5 => "E", 6 => "FG", 7 => "H", 8 => "I",
+               9 => "J", 10 => "K", 11 => "LM",  12 => "N", 13 => "O" }
+    TextMatcher.match(source,target).should == { 1=>[1], 2=>[2], 3=>[3], 4=>[4], 5=>[5], 6=>[5, 6],
+                                                 7=>[7], 8=>[8], 9=>[9], 10=>[10], 11=>[10, 11],
+                                                 12=>[12], 13=>[13]
+                                               }
+  end
+
   it 'should pair two for one target regardless of spacing' do
     source = { 1 => "Petar ide u ducan.", 2 => "Tamo je ludnica." }
     target = { 1 => "Petar ide u  ducan. Tamo je ludnica." }
