@@ -1,7 +1,6 @@
 PATH
   remote: .
   specs:
-    guerrilla_patch (2.8.6)
 
 GEM
   remote: http://rubygems.org/
@@ -25,3 +24,6 @@ DEPENDENCIES
   guerrilla_patch!
   rake
   rspec (~> 2.8.0)
+
+BUNDLED WITH
+   1.11.2
