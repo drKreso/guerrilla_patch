@@ -49,25 +49,25 @@ describe TextMatcher  do
     TextMatcher.match(source,target).should == { 1 => [1, 2] }
   end
 
-  xit 'should recover after missing target' do
+  it 'should recover after missing target' do
     source = { 1 => "Petar ide u ducan.", 2 => "Tamo je ludnica." }
     target = { 1 => "Petar ide u ducan.", 2 => "missing", 3=> "Tamo je ludnica." }
     TextMatcher.match(source,target).should == { 1 => [1], 2 => [], 3 => [2] }
   end
 
-  xit 'should recover after missing source' do
+  it 'should recover after missing source' do
     source = { 1 => "Petar ide u ducan.", 2 => "missing", 3 => "Tamo je ludnica." }
     target = { 1 => "Petar ide u ducan.", 2=> "Tamo je ludnica." }
     TextMatcher.match(source,target).should == { 1 => [1], 2 => [3] }
   end
 
-  xit 'should recover after half missing source' do
+  it 'should recover after half missing source' do
     source = { 1 => "Petar ide u ducan. miss", 2 => "ing", 3 => "thisTamo je ludnica." }
     target = { 1 => "Petar ide u ducan.", 2=> "Tamo je ludnica." }
     TextMatcher.match(source,target).should == { 1 => [1], 2 => [3] }
   end
 
-  xit 'should recover after half missing both source and target' do
+  it 'should recover after half missing both source and target' do
     source = { 1 => "Petar ide u ducan.", 2 => "thisTamo je ludnica." }
     target = { 1 => "Petar ide u ducan.kovic", 2=> "Tamo je ludnica." }
     TextMatcher.match(source,target).should == { 1 => [1], 2 => [2] }
@@ -83,6 +83,12 @@ describe TextMatcher  do
     source = { 1 => "Petar ide u ducan. Tamo", 2 => "je ludnica.", 3 => "Ovo je ok.", 4 => "Sadrzi zadnje dvije." }
     target = { 1 => "Petar ide u ducan.", 2=> "Tamo je ludnica." , 3 => "Ovo je ok. Sadrzi zadnje dvije." }
     TextMatcher.match(source,target).should == { 1 => [1], 2 => [1,2], 3 => [3,4] }
+  end
+
+  it 'should not skip too much but declare missing if present but far away' do
+    source = { 1 => "Petar ide u ducan.", 3 => "Tamo je ludnica.", 4 => "missing" }
+    target = { 1 => "Petar ide u ducan.", 2 => "missing", 3 => "Tamo je ludnica.", 4 => "missing" }
+    TextMatcher.match(source,target).should == { 1 => [1], 2 => [], 3 => [3], 4 => [4] }
   end
 
 end
