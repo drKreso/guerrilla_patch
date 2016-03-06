@@ -11,7 +11,6 @@ class TextMatcher
     source_concatenated = source.each_value.map {|v| v}.join('')
     target_concatenated = target.each_value.map {|v| v}.join('')
 
-    nil_char_mark = 9
     nil_char_mark = "-"
 
     #we have difference so we'll clean up so source and target match
