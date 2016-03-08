@@ -1,3 +1,3 @@
 module GuerrillaPatch
-  VERSION = "2.8.9"
+  VERSION = "3.0.0"
 end
