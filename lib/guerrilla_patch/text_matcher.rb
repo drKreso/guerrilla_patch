@@ -2,8 +2,46 @@ class TextMatcher
 
   def self.match(source, target)
     result = {}
-    source.each_pair { |key,value| source[key] = value.gsub(' ', '').downcase }
-    target.each_pair { |key,value| target[key] = value.gsub(' ', '').downcase }
+    source.each_pair { |key,value| source[key] = value.gsub(' ', '').downcase.gsub(/\(\d+\)/,'').gsub("\t",'') }
+    target.each_pair { |key,value| target[key] = value.gsub(' ', '').downcase.gsub(/\(\d+\)/,'').gsub("\t",'') }
+
+    #clenup both target and source for tokens that don't exist in both
+    source_to_delete_key = []
+    target_to_delete_key = []
+
+    source_concatenated_temp = source.each_value.map {|v| v}.join('')
+    target_concatenated_temp = target.each_value.map {|v| v}.join('')
+
+    source.each_pair do |key, value|
+      if target_concatenated_temp.include?(value) == false
+        exists = false
+        value.scan(/...../).each do |sub_value|
+          if target_concatenated_temp.include?(sub_value) == true
+            exists = true
+          end
+        end
+        source_to_delete_key << key unless exists
+      end
+    end
+    source_to_delete_key.each do |key|
+      source.delete(key)
+    end
+
+    target.each_pair do |key, value|
+      if source_concatenated_temp.include?(value) == false
+        exists = false
+        value.scan(/...../).each do |sub_value|
+          if source_concatenated_temp.include?(sub_value) == true
+            exists = true
+          end
+        end
+        target_to_delete_key << key unless exists
+      end
+    end
+
+    target_to_delete_key.each do |key|
+      target.delete(key)
+    end
 
     mapped_source = source.each_with_index.map { |key_value,index| [index] * key_value[1].size }.flatten(1)
     mapped_target = target.each_with_index.map { |key_value,index| [index] * key_value[1].size }.flatten(1)
@@ -91,6 +129,7 @@ class TextMatcher
 
         source_concatenated = source_concatenated[source_token.size..-1]
         target_concatenated = target_concatenated[target_token.size..-1]
+
       end
     end
 
@@ -103,7 +142,7 @@ class TextMatcher
       end
     end
 
-    result.each_pair { |key, value| result[key] = value.flatten.uniq }
+    result.each_pair { |key, value| result[key] = value.flatten.uniq.compact }
 
     #map real ids
     target_as_pairs = target.map {|key, value| [key, value]}
