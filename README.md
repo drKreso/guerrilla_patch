@@ -142,14 +142,6 @@ end
 
 Somehow for my convoluted brain the later reads better.
 
-Text matching
------------------------------------------
-```
-source = { 1 => "Petar goes to the store.", 2 => "It is crazy there." }
-target = { 1 => "Petar goes to the store. It is crazy there." }
-TextMatcher.match(source,target).should == { 1 => [1, 2] }
-```
-
 Contributing to guerrilla_patch
 -------------------------------
 
