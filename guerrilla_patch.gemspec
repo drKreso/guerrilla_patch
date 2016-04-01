@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.description = "Collection of monkey patches I like to use in my projects"
   gem.summary = "Since I am tired of hunting down monkey patches at large I am caging them inside this gem"
   gem.homepage = "http://github.com/drKreso/guerrilla_patch"
-  gem.date = "2012-11-04"
+  gem.date = "2016-04-01"
 
 
   gem.licenses = ["MIT"]
@@ -21,4 +21,3 @@ Gem::Specification.new do |gem|
   gem.version = GuerrillaPatch::VERSION
 
 end
-
